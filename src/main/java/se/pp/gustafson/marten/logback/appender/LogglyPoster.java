@@ -76,6 +76,7 @@ public final class LogglyPoster extends Thread
             final HttpURLConnection connection = (HttpURLConnection)this.endpoint.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
+            connection.addRequestProperty("Content-Type", "text/plain");
             connection.connect();
             sendAndClose(event, connection.getOutputStream());
             connection.disconnect();
